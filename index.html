@@ -9,7 +9,7 @@
             $("#student-id").on("input", function () {
                 var student_id = $("input#student-id");
 
-                var hashmd5 = CryptoJS.MD5(student_id.val());
+                var hashmd5 = CryptoJS.MD5(student_id.val().trim());
                 var hashhex = hashmd5.toString(CryptoJS.enc.Hex);
                 var hashint = parseInt(hashhex, 16);
                 var rel = hashint / (2 ** 128);
