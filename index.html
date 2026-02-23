@@ -1,30 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Profile</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <script>
-        $(document).ready(function () {
-            $("#student-id").on("input", function () {
-                var student_id = $("input#student-id");
 
-                var hashmd5 = CryptoJS.MD5(student_id.val().trim());
-                var hashhex = hashmd5.toString(CryptoJS.enc.Hex);
-                var hashint = parseInt(hashhex, 16);
-                var rel = hashint / (2 ** 128);
+    <header>
+        <h1>Dr. Jane Doe</h1>
+        <p>Assistant Professor of Computer Science<br>
+        University of Science</p>
+    </header>
 
-                val = 1 + 2 * rel;
-                $("#student-value").text(val.toFixed(1));
-            })
-        });
-    </script>
-    <form id="form0">
-        Your UL student e-mail address (ending with @student.uni.lu):
-        <input style="width: 300px;" type="text" id="student-id" name="student-id">
-        </br>
-        <span style="color:red">Your λ value:
-            <span id="student-value">---</span>
-        </span>
-    </form>
+    <section id="about">
+        <h2>About</h2>
+        <p>I am an Assistant Professor in the Department of Computer Science at the University of Science. My research interests lie at the intersection of Artificial Intelligence and Human-Computer Interaction.</p>
+        <p>Previously, I was a Postdoctoral Fellow at Tech Institute. I received my Ph.D. from State University.</p>
+    </section>
+
+    <section id="publications">
+        <h2>Selected Publications</h2>
+        <ul>
+            <li>
+                <span class="publication-date">[2023]</span>
+                <a href="#">Understanding Minimalist Web Design in Academia</a>.
+                Jane Doe, John Smith. <em>Journal of Web Engineering</em>.
+            </li>
+            <li>
+                <span class="publication-date">[2022]</span>
+                <a href="#">Efficient Algorithms for Data Processing</a>.
+                Jane Doe. <em>International Conference on Algorithms</em>.
+            </li>
+            <li>
+                <span class="publication-date">[2021]</span>
+                <a href="#">A Survey of Machine Learning Techniques</a>.
+                Alice Johnson, Jane Doe. <em>ACM Computing Surveys</em>.
+            </li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>
+            Email: <a href="mailto:jane.doe@university.edu">jane.doe@university.edu</a><br>
+            Office: Building A, Room 101
+        </p>
+        <p>
+            <a href="#">Google Scholar</a> |
+            <a href="#">GitHub</a> |
+            <a href="#">Twitter</a>
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Jane Doe. <a href="lambda_calculator.html" class="lambda-link">&lambda;</a></p>
+    </footer>
+
 </body>
+</html>
