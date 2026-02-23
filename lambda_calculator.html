@@ -1,0 +1,30 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            $("#student-id").on("input", function () {
+                var student_id = $("input#student-id");
+
+                var hashmd5 = CryptoJS.MD5(student_id.val().trim());
+                var hashhex = hashmd5.toString(CryptoJS.enc.Hex);
+                var hashint = parseInt(hashhex, 16);
+                var rel = hashint / (2 ** 128);
+
+                val = 1 + 2 * rel;
+                $("#student-value").text(val.toFixed(1));
+            })
+        });
+    </script>
+    <form id="form0">
+        Your UL student e-mail address (ending with @student.uni.lu):
+        <input style="width: 300px;" type="text" id="student-id" name="student-id">
+        </br>
+        <span style="color:red">Your λ value:
+            <span id="student-value">---</span>
+        </span>
+    </form>
+</body>
