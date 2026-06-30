@@ -1,0 +1,12 @@
+# Hugo build output
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+# Hugo cache (only present if you set caches.dir locally)
+/.hugo_cache/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
