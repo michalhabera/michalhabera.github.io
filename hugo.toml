@@ -1,0 +1,40 @@
+baseURL = "https://michalhabera.github.io/"
+defaultContentLanguage = "en"
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    locale = "en-US"
+    weight = 1
+
+title = "Michal Habera"
+theme = "etch"
+enableInlineShortcodes = true
+
+[params]
+  description = "Personal website"
+  copyright = "© 2026 Michal Habera"
+  dark = "auto"
+  highlight = true
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "posts"
+    title = "posts"
+    url = "/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "about"
+    name = "about"
+    title = "about"
+    url = "/about/"
+    weight = 20
+
+[permalinks]
+  posts = "/:title/"
+
+[markup.goldmark.renderer]
+  # Allows HTML in Markdown
+  unsafe = true
