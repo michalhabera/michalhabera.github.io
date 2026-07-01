@@ -38,3 +38,7 @@ pygmentsUseClasses = true
       inline = [['\(', '\)']]
   [markup.tableOfContents]
     ordered = true
+
+[services]
+  [services.googleAnalytics]
+    id = "G-MDJLYNC9MV"
