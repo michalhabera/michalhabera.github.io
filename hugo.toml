@@ -1,15 +1,10 @@
 baseURL = "https://michalhabera.github.io/"
-defaultContentLanguage = "en"
-
-[languages]
-  [languages.en]
-    languageName = "English"
-    locale = "en-US"
-    weight = 1
-
 title = "Michal Habera"
 theme = "etch"
+languageCode = "en-US"
 enableInlineShortcodes = true
+pygmentsCodeFences = true
+pygmentsUseClasses = true
 
 [params]
   description = "Personal website"
@@ -21,10 +16,8 @@ enableInlineShortcodes = true
   [[menu.main]]
     identifier = "posts"
     name = "posts"
-    title = "posts"
-    url = "/"
+    url = "/posts/"
     weight = 10
-
   [[menu.main]]
     identifier = "about"
     name = "about"
@@ -35,6 +28,13 @@ enableInlineShortcodes = true
 [permalinks]
   posts = "/:title/"
 
-[markup.goldmark.renderer]
-  # Allows HTML in Markdown
-  unsafe = true
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block = [['\[', '\]'], ['$$', '$$']]
+      inline = [['\(', '\)']]
+  [markup.tableOfContents]
+    ordered = true

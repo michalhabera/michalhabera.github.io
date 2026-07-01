@@ -7,7 +7,7 @@ sudo apt-get install -y gcc
 
 # Pin for reproducibility; keep in sync with HUGO_VERSION in
 # .github/workflows/hugo.yml so local == CI.
-HUGO_VERSION="v0.147.2"
+HUGO_VERSION="v0.158.0"
 
 # Resolve the real install dir instead of assuming ~/go/bin.
 GOBIN="$(go env GOBIN)"; [ -z "$GOBIN" ] && GOBIN="$(go env GOPATH)/bin"
