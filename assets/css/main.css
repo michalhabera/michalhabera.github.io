@@ -273,6 +273,28 @@ main#content .footnotes {
     font-size: 0.9em;
 }
 
+main#content table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.8em;
+    margin: 20px 0;
+}
+
+main#content table th,
+main#content table td {
+    padding: 6px 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.35);
+}
+
+main#content table thead th {
+    border-bottom: 2px solid rgba(128, 128, 128, 0.6);
+}
+
+main#content table tbody tr:nth-child(even) {
+    background: rgba(128, 128, 128, 0.08);
+}
+
 footer#footer {
     font-size: 14px;
     font-size: 1.4rem;
