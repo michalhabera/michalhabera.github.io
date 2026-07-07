@@ -1,7 +1,5 @@
-<a href="{{ .Destination | safeURL }}"
+<a href="{{ .Destination | safeURL }}" class="boxed-link" data-url="{{ .Destination }}"
    {{ with .Title }} title="{{ . }}"{{ end }}
-   {{ if strings.HasPrefix .Destination "http" }} 
-     class="boxed-link" target="_blank" rel="noopener noreferrer"
-   {{ end }}>
+   {{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>
    {{- .Text | safeHTML -}}
 </a>
