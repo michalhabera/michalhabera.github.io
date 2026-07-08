@@ -1,0 +1,3 @@
+[default.extend-words]
+# ARM's Scalable Matrix Extension, not a misspelling of "some"/"same".
+SME = "SME"

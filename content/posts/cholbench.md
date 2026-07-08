@@ -18,7 +18,7 @@ Another benchmark collections worth mentioning:
 
 - [StAnD: A Dataset of Linear Static Analysis Problems,](https://github.com/zurutech/stand)
 - [NAFEMS Linear Static Benchmarks](https://help.solidworks.com/2026/english/simtutorialonline/c_nafems_linear_top.htm?id=1.1.0),
-- or, if comfortable with traingulated, STL surfaces, [CarHoods10k](https://datadryad.org/dataset/doi%3A10.5061/dryad.2fqz612pt).
+- or, if comfortable with triangulated, STL surfaces, [CarHoods10k](https://datadryad.org/dataset/doi%3A10.5061/dryad.2fqz612pt).
 
 So I've set up a simple pipeline that:
 
@@ -37,7 +37,7 @@ All codes used to generate the results in this benchmark are available in my [ch
 
 ### CAD, mesh and matrix assembly
 
-The clevis bracket is a mechanical part that is used to connect two components, with a base that is usuallly bolted to a surface and two wings perpendicular to the base. Drawing the clevis bracket in `build123d` is very simple, and it provides a nice [export-to-SVG](https://build123d.readthedocs.io/en/latest/import_export.html#d-exporters), see below the clevis bracket CAD model.
+The clevis bracket is a mechanical part that is used to connect two components, with a base that is usually bolted to a surface and two wings perpendicular to the base. Drawing the clevis bracket in `build123d` is very simple, and it provides a nice [export-to-SVG](https://build123d.readthedocs.io/en/latest/import_export.html#d-exporters), see below the clevis bracket CAD model.
 
 {{< figure src="/images/cholbench/clevis_bracket.svg" title="Figure 1" caption="3D CAD model of the clevis bracket generated in build123d." >}}
 
@@ -84,7 +84,7 @@ Each library exposes a different amount of diagnostic detail about what it actua
 
 Both MUMPS and CHOLMOD were installed using [pixi](https://pixi.prefix.dev/latest/), which is based on [conda](https://docs.conda.io/projects/conda/en/latest/index.html#).
 
-On Apple ARM it is important to use the [Accelerate BLAS](https://developer.apple.com/documentation/accelerate/blas/), which for Level-3 work with high arithmetic intensity uses ARM's Scalable Matrix Extension (SME) for matrix-matrix SGEMM and DGEMM operations. These have a [measured](https://tnzr.org/sme/micro.html) peak arithemtic intestity of \(\approx 500\) Gflop/s for double precision. In single precision, the peak is \(\approx 2\) Tflop/s.
+On Apple ARM it is important to use the [Accelerate BLAS](https://developer.apple.com/documentation/accelerate/blas/), which for Level-3 work with high arithmetic intensity uses ARM's Scalable Matrix Extension (SME) for matrix-matrix SGEMM and DGEMM operations. These have a [measured](https://tnzr.org/sme/micro.html) peak arithmetic intensity of \(\approx 500\) Gflop/s for double precision. In single precision, the peak is \(\approx 2\) Tflop/s.
 
 Another important aspect is the ordering used during the symbolic factorization phase. Apple Accelerate has an internal ordering, while for CHOLMOD and MUMPS I've made sure to use METIS. However, what I've observed, the number of nonzero factors in the factor matrix \(L\) is not the same. One should compute the ordering once,and provide it to both libraries, for fair comparison.
 

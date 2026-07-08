@@ -20,3 +20,19 @@ grep -qs 'go env GOPATH' "$HOME/.bashrc" || \
   echo 'export PATH="$(go env GOPATH)/bin:$PATH"' >> "$HOME/.bashrc"
 
 hugo version
+
+# typos: spell checker for source and prose. Pinned for reproducibility.
+TYPOS_VERSION="v1.48.0"
+
+case "$(uname -m)" in
+  x86_64)          TYPOS_ARCH="x86_64" ;;
+  aarch64 | arm64) TYPOS_ARCH="aarch64" ;;
+  *) echo "unsupported architecture: $(uname -m)" >&2; exit 1 ;;
+esac
+
+TYPOS_TARBALL="typos-${TYPOS_VERSION}-${TYPOS_ARCH}-unknown-linux-musl.tar.gz"
+curl -fsSL \
+  "https://github.com/crate-ci/typos/releases/download/${TYPOS_VERSION}/${TYPOS_TARBALL}" \
+  | sudo tar -xz -C /usr/local/bin ./typos
+
+typos --version
