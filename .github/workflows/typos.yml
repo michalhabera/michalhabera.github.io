@@ -1,0 +1,18 @@
+name: Spell check
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  typos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Pin for reproducibility; keep in sync with TYPOS_VERSION in
+      # post-create.sh so local == CI.
+      - uses: crate-ci/typos@v1.48.0
+        with:
+          files: content
